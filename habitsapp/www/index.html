@@ -39,11 +39,10 @@ CTYPE html>
      <list class="list">
      <item class="item item-radio" ng-repeat="task in activeFriend.tasks" ng-click="doTask(task)">
      {{task.title}}
-     <input type="checkbox" ng-model="task.done">
-    <i class="icon radio-icon ion-checkmark"></i>
-     
-     <!--  } 
-     <i class="radio-icon ion-checkmark" ></i>      -->
+     <input type="checkbox" checked="true">
+     <i class="icon radio-icon" ng-class="{'ion-checkmark': task.count >= task.targetCount}">
+         {{task.count}}/{{task.targetCount}}
+     </i>
       </item>
       </list>  
   </content>
@@ -82,7 +81,16 @@ CTYPE html>
                     <div class="list">
                         <label class="item item-input">
                             <input type="text" placeholder="What do you need to do?" ng-model="task.title">
-                        </label>
+                            </label>
+                            <label class="item item-input">
+                            <input type="text" placeholder="How many times" ng-model="task.count">
+                        </label> 
+                        <label class="item item-input">
+                            <input type="text" placeholder="How often? (# days)" value="1" ng-model="task.reset">
+                        </label> 
+                        <label class="item item-input">
+                            <input type="text" placeholder="Starting when? (# days offset)" value="0" ng-model="task.current">
+                        </label>  
                     </div>
                     <div class="padding">
                         <button type="submit" class="button button-block button-positive">Create Task</button>

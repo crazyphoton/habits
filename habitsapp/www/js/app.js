@@ -64,8 +64,8 @@ angular.module('todo', ['ionic'])
     $scope.sideMenuController.close();
   };
   
-  $scope.doTask = function(task, index){
-    task.done=true;
+  $scope.doTask = function(task){
+    task.count++;
   };
 
   // Create our modal
@@ -79,9 +79,17 @@ angular.module('todo', ['ionic'])
     if(!$scope.activeFriend) {
       return;
     }
+    today = (new Date()).setHours(0,0,0,0)
+
+    resetDuration = task.reset*86400000; //in milliseconds
+    startTime = today + task.current * 86400000; 
     $scope.activeFriend.tasks.push({
       title: task.title,
-      done: false
+      targetCount : task.count,
+      resetDuration : resetDuration,
+      startTime : startTime,
+      count : 0,
+      done : false
     });
     $scope.taskModal.hide();
 
