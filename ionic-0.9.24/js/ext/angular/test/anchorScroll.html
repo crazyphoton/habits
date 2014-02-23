@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="ionic">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../../../../dist/css/ionic.css" />
+    <script src="../../../../dist/js/ionic.bundle.js"></script>
+
+  </head>
+
+  <body>
+
+    <div ng-controller="MyCtrl">
+      <header-bar title="title" type="bar-positive">
+      </header-bar>
+      <content has-header="true">
+        <a ng-click="scrollTo('foo')">Click me!</a>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+
+        <div id="foo">Here you are.</div>
+
+
+      </content>
+    </div>
+
+    <script>
+function MyCtrl($scope, $location, $ionicScrollDelegate) {
+  $scope.scrollTo = function(id) {
+    $location.hash(id);
+    $ionicScrollDelegate.anchorScroll(true);
+  }
+}
+    </script>
+  </body>
+</html>
