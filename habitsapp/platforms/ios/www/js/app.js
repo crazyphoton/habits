@@ -63,6 +63,10 @@ angular.module('todo', ['ionic'])
     Friends.setLastActiveIndex(index);
     $scope.sideMenuController.close();
   };
+  
+  $scope.doTask = function(task, index){
+    task.done=true;
+  };
 
   // Create our modal
   $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
@@ -76,7 +80,8 @@ angular.module('todo', ['ionic'])
       return;
     }
     $scope.activeFriend.tasks.push({
-      title: task.title
+      title: task.title,
+      done: false
     });
     $scope.taskModal.hide();
 
